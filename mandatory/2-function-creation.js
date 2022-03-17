@@ -7,7 +7,7 @@ Tip: use logical operators
 */
 
 function validate(num) {
-  return typeof(num) === "is a number" && num  % 2 === 0 && num <= 100;
+  return typeof num === "number" && num % 2 === 0 && num <= 100;
 }
 
 /*
@@ -19,20 +19,26 @@ Write a function that:
 */
 
 function formatPercentage(num) {
-  let output = num > 100;
-  return Math.round(output * 100) /100 + "%";
+  if (num > 100) {num = 100};
+  const roundedNum = Math.round(num * 100) / 100;
+  return `${roundedNum}%`;
 }
 
 /*
 Write a function that:
 - takes an array of strings as input
-- removes any spaces in the beginning or end of each string
-- removes any forward slashes (/) in each string
-- makes all strings all lowercase
+- removes any spaces in the beginning or end of the strings
+- removes any forward slashes (/) in the strings
+- makes the string all lowercase
 */
 function tidyUpStrings(arrayOfStrings) {
-  str = [];
-  str.push(arrayOfStrings.trim().replace().toLowerCase());
+  const cleanedStrings = [];
+  for (let i = 0; i < arrayOfStrings.length; i++) {
+    const item = arrayOfStrings[i];
+    const changedItem = item.trim().replace('/', '').toLowerCase();
+    cleanedStrings.push(changedItem);
+  }
+  return cleanedStrings;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */

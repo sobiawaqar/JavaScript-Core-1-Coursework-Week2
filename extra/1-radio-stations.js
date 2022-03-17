@@ -1,3 +1,5 @@
+// Code Help from Solutions for understanding-Sobia Waqar
+
 /**
  * Finding a radio station, and a good one, can be hard manually.
  * Let's use some code to help us build a program that helps us scan
@@ -13,8 +15,6 @@
  * - Should return this array to use in other functions
  */
 
-// `getAllFrequencies` goes here
-
 /**
  * Next, let's write a function that gives us only the frequencies that are radio stations.
  * Call this function `getStations`.
@@ -24,17 +24,51 @@
  * - There is a helper function called isRadioStation that takes an integer as an argument and returns a boolean.
  * - Return only the frequencies that are radio stations.
  */
+
+function getAllFrequencies() {
+  const allFrequencies = [];
+  const startFrequency = 87;
+  const endFrequency = 108;
+
+  for (let i = startFrequency; i <= endFrequency; i++) {
+    allFrequencies.push(i);
+  }
+
+  return allFrequencies;
+}
+
+// `getAllFrequencies` goes here
+
+/**
+ * Next, let's write a function that gives us only the frequencies that are radio stations.
+ * Call this function `getStations`.
+ *
+ * This function should:
+ * - Get the available frequencies from `getAllFrequencies`
+ * - There is a helper function called isRadioFrequency that takes an integer as an argument and returns a boolean.
+ * - Return only the frequencies that are radio stations.
+ */
 // `getStations` goes here
+
+function getStations() {
+  const allFrequencies = getAllFrequencies();
+  const radioFrequencies = [];
+
+  for (let i = 0; i < allFrequencies.length; i++) {
+    const currentFrequency = allFrequencies[i];
+    if (isRadioStation(currentFrequency)) radioFrequencies.push(currentFrequency);
+  }
+  return radioFrequencies;
+}
 
 /*
  * ======= TESTS - DO NOT MODIFY =======
  * Note: You are not expected to understand everything below this comment!
  */
-
-function getAvailableStations() {
   // Using `stations` as a property as defining it as a global variable wouldn't
   // always make it initialized before the function is called
-  if (!getAvailableStations.stations) {
+function getAvailableStations() {
+    if (!getAvailableStations.stations) {
     const stationCount = 4;
     getAvailableStations.stations = [];
     while (getAvailableStations.stations.length < stationCount) {
