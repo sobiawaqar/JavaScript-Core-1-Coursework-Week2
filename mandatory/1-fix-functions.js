@@ -5,8 +5,8 @@
   NOTE:Only make edits inside the function
 */
 
-function mood() {
-  let isHappy = false;
+function mood(isHappy) {
+ // let isHappy = true;
 
   if (isHappy) {
     return "I am happy";
